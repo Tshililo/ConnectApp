@@ -1,0 +1,76 @@
+﻿
+@{ Layout = null; }
+
+
+@model ConnectApp.Models.LoginModel
+
+@using (Html.BeginForm("LoginUser", "Login", FormMethod.Post))
+{
+
+    <div class="accountHeader">
+        <p>
+            Please enter your username and password. @Html.ActionLink("Register", "Register")
+            if you don't have an account.
+        </p>
+    </div>
+    @Html.AntiForgeryToken()
+
+
+    @Html.DevExpress().PopupControl(settings =>
+{
+    settings.Name = "popLogin";
+    settings.PopupElementID = "popupArea";
+    settings.AllowDragging = true;
+    settings.ShowOnPageLoad = true;
+    settings.CloseAction = CloseAction.CloseButton;
+    settings.HeaderText = "Geoportal Login";
+    settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
+    settings.PopupHorizontalAlign = PopupHorizontalAlign.WindowCenter;
+    settings.PopupAnimationType = AnimationType.Slide;
+    settings.Width = 180;
+
+
+    settings.SetContent(() =>
+    {
+        @Html.DevExpress().Label(lblsettings =>
+        {
+            lblsettings.Name = "ErrorMsg";
+            lblsettings.Text = @ViewBag.ErrorMessage;
+            lblsettings.ControlStyle.ForeColor = System.Drawing.Color.Red;
+
+        }).Render();
+        //
+        @Html.DevExpress().TextBoxFor(m => m.UserName, tb =>
+        {
+            tb.Properties.Caption = "User Name";
+            tb.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+            tb.ShowModelErrors = true;
+            tb.Properties.ValidationSettings.Display = Display.Dynamic;
+            tb.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+            tb.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        }).Render();
+
+        @Html.DevExpress().TextBoxFor(m => m.Password, tb =>
+        {
+            tb.Properties.Caption = "Password";
+            tb.Properties.Password = true;
+            tb.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+            tb.ShowModelErrors = true;
+            tb.Properties.ValidationSettings.Display = Display.Dynamic;
+            tb.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.Text;
+            tb.Properties.ValidationSettings.ErrorTextPosition = ErrorTextPosition.Bottom;
+        }).Render();
+
+
+        @Html.DevExpress().Button(b =>
+        {
+            b.Name = "Button";
+            b.Text = "Log On";
+            b.UseSubmitBehavior = true;
+        }).Render();
+
+        //
+    });
+}).GetHtml()
+
+}

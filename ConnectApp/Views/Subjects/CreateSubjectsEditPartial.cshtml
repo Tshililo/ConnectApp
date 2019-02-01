@@ -1,0 +1,92 @@
+﻿@using DevExpress.Web;
+@using DevExpress.Web.Mvc;
+@using ConnectApp.Models;
+
+@model ConnectApp.Models.LanguagesDto
+
+@Html.HiddenFor(e => e.ObjId)
+@*@Html.HiddenFor(e => e.RoleId)*@
+
+
+
+@Html.DevExpress().FormLayout(settings =>
+{
+    // Get Fields
+    settings.Name = "formLanguage";
+
+    var infoGroupItem1 = settings.Items.AddGroupItem(Gsettings =>
+    {
+        Gsettings.Caption = "Language Section";
+        Gsettings.RowSpan = 4;
+        Gsettings.ShowCaption = DefaultBoolean.True;
+        Gsettings.ColCount = 1;
+
+
+        Gsettings.Items.Add(e => e.LanguageId, itemSettings =>
+        {
+            itemSettings.FieldName = "LanguageDropDown";
+            itemSettings.Caption = "Languages";
+            itemSettings.SetNestedContent(() =>
+            {
+
+                @Html.DevExpress().ComboBox(ComboBoxsettings =>
+                {
+                    // Gsettings.Name = "Id";
+                    ComboBoxsettings.Name = "LanguageId";
+                    //  ComboBoxsettings.Width = 500;
+                    ComboBoxsettings.SelectedIndex = 1;
+                    ComboBoxsettings.Properties.TextField = "Name";
+                    ComboBoxsettings.Properties.ValueField = "ObjId";
+                    ComboBoxsettings.Properties.DropDownStyle = DropDownStyle.DropDown;
+                    ComboBoxsettings.ShowModelErrors = true;
+                }
+          ).BindList(ViewData["Languages"]).Render();
+            });
+
+        });
+
+        Gsettings.Items.Add(e => e.Description, itemSettings =>
+        {
+            itemSettings.Caption = "Description";
+        });
+
+
+        Gsettings.Items.Add(i => i.Link, itemSettings =>
+        {
+            itemSettings.Caption = "Link";
+        });
+
+        #region Buttons
+
+
+        Gsettings.Items.Add(Buttonsettings =>
+        {
+            Buttonsettings.ShowCaption = DefaultBoolean.False;
+            Buttonsettings.SetNestedContent(() =>
+            {
+                Html.ViewContext.Writer.Write("<div style='float:right'>");
+                Html.DevExpress().Button(btnSettings =>
+                {
+                    btnSettings.Name = "btnSave";
+                    btnSettings.Text = "Save";
+                    btnSettings.ClientSideEvents.Click = "SaveSubject";
+                }).Render();
+
+                Html.DevExpress().Button(btnSettings =>
+                {
+                    btnSettings.Name = "btnCancel";
+                    btnSettings.Text = "Cancel";
+                    btnSettings.Style[HtmlTextWriterStyle.MarginLeft] = "5px";
+                    btnSettings.ClientSideEvents.Click = "function (s,e) {SubjectsGridViewPartial.CancelEdit();}";
+                    btnSettings.UseSubmitBehavior = true;
+                }).Render();
+
+                Html.ViewContext.Writer.Write("</div>");
+
+            });
+        });
+        #endregion
+
+    });
+
+}).GetHtml()

@@ -1,0 +1,30 @@
+@* Menu Header *@
+<div style="padding-bottom: 10px; float: right;">
+    @Html.DevExpress().Menu(settings =>
+{
+    string UserRole = Session["UserRole"].ToString();
+
+    var GetUserRole = UserRole == "Admin" ? "true" : "false";
+
+    bool isEdit = bool.Parse(GetUserRole);
+
+    settings.Name = "SubjectsMenu";
+    settings.ShowAsToolbar = true;
+    settings.ShowPopOutImages = DefaultBoolean.True;
+    if (isEdit == true)
+    {
+        settings.Items.Add("New", "btnHeaderNew");
+        settings.Items.Add("Edit", "btnHeaderEdit");
+        settings.Items.Add("Delete", "btnHeaderDelete");
+    }
+    settings.Items.Add("Learn", "btnHeaderTurtorials");
+    //   settings.Items.Add("Exam Papers", "btnHeaderExams");
+
+    if (isEdit == true)
+    {
+        settings.Items.Add("Print", "btnPrintReport");
+    }
+    settings.ClientSideEvents.ItemClick = "OnSubjectsMenuClick";
+}).GetHtml()
+
+</div>

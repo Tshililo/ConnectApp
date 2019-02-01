@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ConnectDBModelStoreContainer" CdmEntityContainer="ConnectDBEntities">
+    <EntitySetMapping Name="ReportHeaders">
+      <EntityTypeMapping TypeName="ConnectDBModel.ReportHeader">
+        <MappingFragment StoreEntitySet="ReportHeader">
+          <ScalarProperty Name="ObjId" ColumnName="ObjId" />
+          <ScalarProperty Name="OrganisationName" ColumnName="OrganisationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TeNo" ColumnName="TeNo" />
+          <ScalarProperty Name="Vat" ColumnName="Vat" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ConnectDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ConnectDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TempPassword" ColumnName="TempPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Idno" ColumnName="Idno" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="ConnectDBModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="ObjId" ColumnName="ObjId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageBases">
+      <EntityTypeMapping TypeName="ConnectDBModel.LanguageBase">
+        <MappingFragment StoreEntitySet="LanguageBase">
+          <ScalarProperty Name="LangauageId" ColumnName="LangauageId" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ObjId" ColumnName="ObjId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="ConnectDBModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjId" ColumnName="ObjId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

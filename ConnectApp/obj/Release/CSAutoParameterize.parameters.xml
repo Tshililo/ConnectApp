@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ApplicationServices-Web.config Connection String" description="ApplicationServices Connection String used in web.config by the application to access the database." defaultValue="data source=(localdb)\mssqllocaldb;integrated security=SSPI;attachdbfilename=|DataDirectory|\aspnetdb.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Tshililo\\Documents\\Visual\ Studio\ 2015\\Projects\\ConnectApp\\ConnectApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
+  </parameter>
+  <parameter name="NWindConnectionString-Web.config Connection String" description="NWindConnectionString Connection String used in web.config by the application to access the database." defaultValue="data source=(localdb)\mssqllocaldb;attachdbfilename=|DataDirectory|\NWind.mdf;integrated security=True;connect timeout=120" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Tshililo\\Documents\\Visual\ Studio\ 2015\\Projects\\ConnectApp\\ConnectApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NWindConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="ConnectDBEntities-Web.config Connection String" description="ConnectDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/ConnectModel.csdl|res://*/ConnectModel.ssdl|res://*/ConnectModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=BEST-DELL\PALTRACK;initial catalog=ConnectDB;user id=sa;password=P@ltr@ck;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Tshililo\\Documents\\Visual\ Studio\ 2015\\Projects\\ConnectApp\\ConnectApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectDBEntities']/@connectionString" />
+  </parameter>
+  <parameter name="ConnectApp.Models.NorthwindContext-Web.config Connection String" description="ConnectApp.Models.NorthwindContext Connection String used in web.config by the application to access the database." defaultValue="ConnectApp.Models.NorthwindContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Tshililo\\Documents\\Visual\ Studio\ 2015\\Projects\\ConnectApp\\ConnectApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectApp.Models.NorthwindContext']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="DefaultConnection_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Tshililo\\Documents\\Visual\ Studio\ 2015\\Projects\\ConnectApp\\ConnectApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>
